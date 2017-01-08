@@ -2,4 +2,6 @@
     <string name="app_name">FpvMeetUp</string>
     <string name="portrait">Portrait!</string>
     <string name="landscape">Landscape!</string>
+    <string name="headlines">Headlines</string>
+    <string name="article">Article</string>
 </resources>
