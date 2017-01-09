@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 /**
@@ -45,6 +46,9 @@ public class FragmentHeadlines extends ListFragment  {
             Toast.makeText(getActivity().getBaseContext(), "Clicked Landscape." + NewData.Headlines[position],
                     Toast.LENGTH_SHORT).show();
         }
+
+        TextView txtNote = (TextView) getActivity().findViewById(R.id.txtNote);
+        txtNote.setText(NewData.Articles[position]);
 
     }
 
