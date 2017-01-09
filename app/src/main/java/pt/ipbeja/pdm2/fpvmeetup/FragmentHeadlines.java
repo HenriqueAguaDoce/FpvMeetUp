@@ -36,7 +36,16 @@ public class FragmentHeadlines extends ListFragment  {
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Toast.makeText(getContext(), NewData.Headlines[position], Toast.LENGTH_SHORT).show();
+
+        if (getActivity().findViewById(R.id.fragment_container) != null){
+            Toast.makeText(getActivity().getBaseContext(), "Clicked Portrait." + NewData.Headlines[position],
+                    Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(getActivity().getBaseContext(), "Clicked Landscape." + NewData.Headlines[position],
+                    Toast.LENGTH_SHORT).show();
+        }
+
     }
 
 }
