@@ -11,11 +11,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toast.makeText(this, NewData.Headlines[0], Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, NewData.Articles[0], Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(this, "OnCreate", Toast.LENGTH_SHORT).show();
-
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
                 return;
