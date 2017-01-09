@@ -3,6 +3,7 @@ package pt.ipbeja.pdm2.fpvmeetup;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,17 +39,19 @@ public class FragmentHeadlines extends ListFragment  {
     public void onListItemClick(ListView l, View v, int position, long id) {
 
         if (getActivity().findViewById(R.id.fragment_container) != null){
-            Toast.makeText(getActivity().getBaseContext(), "Clicked Portrait." + NewData.Headlines[position],
-                    Toast.LENGTH_SHORT).show();
+
+            FragmentArticle newFragment = new FragmentArticle();
+            Bundle args = new Bundle();
+            args.putInt("position", position);
+            newFragment.setArguments(args);
+            FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         else{
-            Toast.makeText(getActivity().getBaseContext(), "Clicked Landscape." + NewData.Headlines[position],
-                    Toast.LENGTH_SHORT).show();
+            TextView txtNote = (TextView) getActivity().findViewById(R.id.txtNote);
+            txtNote.setText(NewData.Articles[position]);
         }
-
-        TextView txtNote = (TextView) getActivity().findViewById(R.id.txtNote);
-        txtNote.setText(NewData.Articles[position]);
-
     }
-
 }
