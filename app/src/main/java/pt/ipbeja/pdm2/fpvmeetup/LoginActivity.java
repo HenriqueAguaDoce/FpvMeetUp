@@ -20,6 +20,8 @@ public class LoginActivity extends AppCompatActivity {
         this.db = new DBHelper(this);
         txtName = (EditText) findViewById(R.id.txtUserName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
+        txtName.setText("");
+        txtPass.setText("");
 
     }
 
@@ -40,6 +42,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if (res == true) {
             Intent i = new Intent(this, MainActivity.class);
+            txtName.setText("");
+            txtPass.setText("");
             startActivity(i);
         }
         else {
@@ -49,6 +53,8 @@ public class LoginActivity extends AppCompatActivity {
 
     public void txtCreateAccount_onClick(View view) {
         Intent i = new Intent(this, RegisterActivity.class);
+        txtName.setText("");
+        txtPass.setText("");
         startActivity(i);
     }
 }

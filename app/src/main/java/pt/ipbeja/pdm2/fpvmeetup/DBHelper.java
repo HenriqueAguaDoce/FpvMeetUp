@@ -16,8 +16,8 @@ import pt.ipbeja.pdm2.fpvmeetup.Model.Users;
  */
 
 public class DBHelper extends SQLiteOpenHelper {
-    private static final String DB_FILENAME = "MyDataBase.db";
-    private static final int DB_VERSION = 3;
+    private static final String DB_FILENAME = "MyDB.db";
+    private static final int DB_VERSION = 1;
     private static final SQLiteDatabase.CursorFactory factory = null;
 
     private static final int IDX_USERS = 0;

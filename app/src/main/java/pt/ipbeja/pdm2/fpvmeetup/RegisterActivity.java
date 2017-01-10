@@ -1,5 +1,6 @@
 package pt.ipbeja.pdm2.fpvmeetup;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
