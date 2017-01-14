@@ -90,7 +90,8 @@
                 android:layout_weight="1"
                 android:paddingBottom="7dp"
                 android:scaleType="centerCrop"
-                android:background="@android:color/background_light" />
+                android:background="@android:color/background_light"
+                android:onClick="imgBuild_onClick"/>
 
             <ImageView
                 android:layout_width="0dp"

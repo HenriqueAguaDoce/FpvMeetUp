@@ -42,4 +42,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, WeatherActivity.class);
         startActivity(i);
     }
+
+    public void imgBuild_onClick(View view) {
+        Intent i = new Intent(this, BuildInfo.class);
+        startActivity(i);
+    }
 }

@@ -25,7 +25,8 @@
         </activity>
         <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".WeatherActivity"></activity>
+        <activity android:name=".WeatherActivity" />
+        <activity android:name=".BuildInfo"></activity>
     </application>
 
 </manifest>
