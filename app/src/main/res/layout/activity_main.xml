@@ -73,7 +73,8 @@
                 android:paddingBottom="1dp"
                 android:layout_marginBottom="4dp"
                 android:layout_marginLeft="4dp"
-                android:background="@android:color/background_light" />
+                android:background="@android:color/background_light"
+                android:onClick="imgLocation_onClick"/>
         </LinearLayout>
 
         <LinearLayout
