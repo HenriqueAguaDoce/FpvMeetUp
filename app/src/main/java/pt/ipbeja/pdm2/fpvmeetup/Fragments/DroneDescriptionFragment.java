@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import pt.ipbeja.pdm2.fpvmeetup.Model.DronesData;
@@ -35,8 +36,12 @@ public class DroneDescriptionFragment extends Fragment {
         if (args != null) {
 
             currentPosition = args.getInt("position");
-            TextView article = (TextView) getActivity().findViewById(R.id.description_text);
-            article.setText(DronesData.Description[currentPosition]);
+            ImageView img = (ImageView) getActivity().findViewById(R.id.photos);
+            TextView text = (TextView) getActivity().findViewById(R.id.parts);
+            TextView art = (TextView) getActivity().findViewById(R.id.description_text);
+            text.setText(DronesData.Parts[currentPosition]);
+            art.setText(DronesData.Description[currentPosition]);
+            img.setImageResource(DronesData.photos[currentPosition]);
         }
     }
 

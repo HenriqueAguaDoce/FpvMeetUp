@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -53,9 +54,12 @@ public class DronePartsFragment extends ListFragment {
         }
         else{
 
-
+            ImageView img = (ImageView) getActivity().findViewById(R.id.photos);
+            TextView text = (TextView) getActivity().findViewById(R.id.parts);
             TextView art = (TextView) getActivity().findViewById(R.id.description_text);
+            text.setText(DronesData.Parts[position]);
             art.setText(DronesData.Description[position]);
+            img.setImageResource(DronesData.photos[position]);
         }
     }
 
