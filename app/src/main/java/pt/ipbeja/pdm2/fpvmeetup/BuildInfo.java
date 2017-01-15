@@ -12,6 +12,8 @@ public class BuildInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build_info);
 
+        getSupportActionBar().setTitle("Build Info");
+
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
                 return;

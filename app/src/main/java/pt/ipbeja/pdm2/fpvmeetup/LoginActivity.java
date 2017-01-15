@@ -1,6 +1,7 @@
 package pt.ipbeja.pdm2.fpvmeetup;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,12 +18,13 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().setTitle("Login");
+
         this.db = new DBHelper(this);
         txtName = (EditText) findViewById(R.id.txtUserName);
         txtPass = (EditText) findViewById(R.id.txtPassword);
         txtName.setText("");
         txtPass.setText("");
-
     }
 
     public void btnLogin_onClick(View view) {
