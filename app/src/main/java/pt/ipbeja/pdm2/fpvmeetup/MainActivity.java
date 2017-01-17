@@ -1,6 +1,7 @@
 package pt.ipbeja.pdm2.fpvmeetup;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Criteria;
@@ -73,16 +74,30 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     public void imgLocation_onClick(View view) {
-        double latitude = location.getLatitude();
-        double longitude = location.getLongitude();
+        if (isGPSEnabled(this)== true) {
+            double latitude = location.getLatitude();
+            double longitude = location.getLongitude();
 
-        Uri uri = Uri.parse("geo:" + latitude + "," + longitude);
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+            Uri uri = Uri.parse("geo:" + latitude + "," + longitude);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "Gps disconnected", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public boolean isGPSEnabled (Context mContext){
+        LocationManager locationManager = (LocationManager)
+                mContext.getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
     }
 
     @Override
     public void onLocationChanged(Location location) {
+
 
     }
 

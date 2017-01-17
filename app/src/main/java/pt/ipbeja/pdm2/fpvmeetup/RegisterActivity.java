@@ -36,20 +36,25 @@ public class RegisterActivity extends AppCompatActivity {
         String email = txtEmail.getText().toString();
         String pass = txtPass.getText().toString();
 
-        Users user = new Users(id, name, pass, email);
+        this.users = new Users(id, name, pass, email);
 
-        if (this.addAccount(user) == false) {
-            return null;
+        return this.users;
+    }
+
+    public boolean checkUser(){
+        this.registerUsers();
+        if (this.addAccount(this.users) == false) {
+            return true;
+        }else {
+            return false;
         }
-
-        return user;
     }
 
     public boolean addAccount(Users user)
     {
-        List<String> teste = new ArrayList<>();
+        List<String> teste;
         teste = db.getAllUserNames();
-        boolean res = teste.contains(user);
+        boolean res = teste.contains(user.getName());
 
 
         if (res == true)
@@ -59,12 +64,13 @@ public class RegisterActivity extends AppCompatActivity {
         else
         {
             db.insertUsers(user);
+            return true;
         }
-        return true;
+
     }
 
     public void btnRegister_onClick(View view) {
-        if (this.registerUsers() != null ) {
+        if (this.checkUser() == false ) {
             this.users = this.registerUsers();
             this.finish();
         }
