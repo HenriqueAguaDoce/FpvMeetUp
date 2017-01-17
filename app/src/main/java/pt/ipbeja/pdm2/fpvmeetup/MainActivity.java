@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -64,8 +65,13 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     }
 
     public void imgConditions_onClick(View view) {
-        Intent i = new Intent(this, WeatherActivity.class);
-        startActivity(i);
+        if (location == null) {
+            Toast.makeText(this, "No Location found", Toast.LENGTH_SHORT).show();
+            Log.e("TAG", "No Location");
+        } else {
+            Intent i = new Intent(this, WeatherActivity.class);
+            startActivity(i);
+        }
     }
 
     public void imgBuild_onClick(View view) {
@@ -75,13 +81,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
     public void imgLocation_onClick(View view) {
         if (isGPSEnabled(this)== true) {
-            double latitude = location.getLatitude();
-            double longitude = location.getLongitude();
+            if (location == null) {
+                Toast.makeText(this, "No Location found", Toast.LENGTH_SHORT).show();
+                Log.e("TAG", "No Location");
+            } else {
+                double latitude = location.getLatitude();
+                double longitude = location.getLongitude();
 
-            Uri uri = Uri.parse("geo:" + latitude + "," + longitude);
+                Uri uri = Uri.parse("geo:" + latitude + "," + longitude);
 
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+
         }
         else {
             Toast.makeText(this, "Gps disconnected", Toast.LENGTH_SHORT).show();
